@@ -53,3 +53,16 @@ The web root is located in the project directory at `htdocs` and you can install
 And like any other vagrant file you have SSH access with
 
 	$ vagrant ssh
+	
+### Changing sync directory to custom one
+#### Vagrantfile
+Append this to file
+
+	config.vm.synced_folder "/Users/bullgare/projects/[your_path_on_host_machine]/","/[dir_name_on_vagrant]"
+
+#### provision.sh
+Change apache's settings with this
+
+	DocumentRoot /[dir_name_on_vagrant_from_Vagrantfile]
+	<Directory /[dir_name_on_vagrant_from_Vagrantfile]>
+
